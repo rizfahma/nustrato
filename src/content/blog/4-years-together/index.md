@@ -16,7 +16,6 @@ coverImage: "Me-and-Ma-Laptop-4-years-together-1-1.jpg"
 
 Today is our fourth year to be together. I didn’t expect that we would be together until today. While the others’ relationships are broken, we can manage to maintain ours. I don’t know exactly why the others’ relationships cannot last till today. Perhaps one side is “damaged” or the other side chooses another couple. It’s just about reliability. You are my only one, my only laptop I have.
 
-\[caption id="attachment\_1997" align="aligncenter" width="600"\]![Me-and-Ma-Laptop-4-years-together](images/Me-and-Ma-Laptop-4-years-together-1-1.jpg) Together With My Laptop\[/caption\]
 
 4 years ago, November 20th 2009 was the day I brought you home. I was very happy that I had you on my side. We spent a plenty of time together, almost more than anything else. With you, I learnt many things, created a bunch of digital stuffs, and finished my final assignment in campus. I’m so glad that you are still on my side until today. You are so strong, reliable, and thank god we’re still together.
 
