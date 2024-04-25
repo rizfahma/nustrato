@@ -20,16 +20,6 @@ I thought it was about the low disk space, that was only less than 5% left that 
 
 Then I thought there must be something to do with the SSL stuff, yeah probably. Some sites on my server were online, but most weren't. And surely I didn't stop there.
 
-<figure>
-
-<figcaption>
-
-Photo by Pixabay on Pexels
-
-</figcaption>
-
-</figure>
-
 I tried any articles that made sense to me to address the issues, and I saw something in some online forum, that suggested us to update some sort of SQL package. I didn't know sh\*t about that, but hey there would be 50:50 chance of any way I tried to make it work. And it didn't work, at least at that second.
 
 Then I just deleted this blog from the Cyberpanel (a control panel I use on my server to manage the websites. Please don't hack it) and let it be for couple of days.
