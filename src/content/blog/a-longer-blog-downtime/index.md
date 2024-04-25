@@ -22,8 +22,6 @@ Then I thought there must be something to do with the SSL stuff, yeah probably. 
 
 <figure>
 
-![adult blur books close up](images/pexels-photo-261909.jpeg)
-
 <figcaption>
 
 Photo by Pixabay on Pexels
