@@ -9,7 +9,6 @@ tags:
   - "my-laptop"
   - "relationship"
   - "sony-vaio"
-coverImage: "Me-and-Ma-Laptop-4-years-together-1-1.jpg"
 ---
 
 # It’s real

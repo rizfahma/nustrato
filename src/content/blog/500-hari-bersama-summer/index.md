@@ -8,7 +8,6 @@ tags:
   - "500-days-of-summer"
   - "innocent-love"
   - "tom-dan-summer"
-coverImage: "Summer-dan-Tom-1-1.jpg"
 ---
 
 # Innocent love kah?
