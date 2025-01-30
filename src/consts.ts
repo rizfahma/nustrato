@@ -62,12 +62,7 @@ export const LINKS: Links = [
 
 // Socials
 export const SOCIALS: Socials = [
-  { 
-    NAME: "Email",
-    ICON: "email", 
-    TEXT: "contact@riz.kim",
-    HREF: "mailto:contact@riz.kim",
-  },
+  
   { 
     NAME: "LinkedIn",
     ICON: "linkedin",
