@@ -6,7 +6,6 @@ categories:
   - "handphone"
 tags: 
   - "user-experience"
-  - "xl"
 coverImage: "Me-and-Ma-Mobile-Phone-1-1.jpg"
 ---
 

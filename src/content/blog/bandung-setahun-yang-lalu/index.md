@@ -8,7 +8,6 @@ tags:
   - "bandung"
   - "itb"
   - "travelling"
-  - "wordcamp-2011"
 coverImage: "The-Thinker-Versi-Bandung-1-1.jpg"
 ---
 

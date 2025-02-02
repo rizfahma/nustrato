@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        "Arial": ["inter", ...defaultTheme.fontFamily.sans],
+        "sans": ["Geist", ...defaultTheme.fontFamily.sans],
       },
       typography: {
         DEFAULT: {

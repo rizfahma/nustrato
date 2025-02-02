@@ -8,7 +8,6 @@ tags:
   - "seminar-tertutup"
   - "skripsi"
   - "tugas-akhir"
-  - "ujian-meja"
 coverImage: "Selesai-is-Finish-1-1.jpg"
 ---
 

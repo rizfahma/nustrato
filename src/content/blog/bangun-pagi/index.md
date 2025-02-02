@@ -5,7 +5,6 @@ summary: "Bercerita tentang bangun pagi setelah kembali dari indonesia dan tiba 
 categories: 
   - "story"
 tags: 
-  - "bangun-tidur"
   - "kebiasaan"
 ---
 
