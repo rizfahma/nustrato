@@ -1,64 +1,89 @@
 import type { CollectionEntry } from "astro:content"
-import { createEffect, createSignal, For } from "solid-js"
+import { createSignal, createMemo, For } from "solid-js"
 import ArrowCard from "@components/ArrowCard"
 import { cn } from "@lib/utils"
 
 type Props = {
-  tags: string[]
   data: CollectionEntry<"blog">[]
 }
 
-export default function Blog({ data, tags }: Props) {
-  const [filter, setFilter] = createSignal(new Set<string>())
-  const [posts, setPosts] = createSignal<CollectionEntry<"blog">[]>([])
+const POSTS_PER_PAGE = 8
 
-  createEffect(() => {
-    setPosts(data.filter((entry) => 
-      Array.from(filter()).every((value) => 
-        entry.data.tags.some((tag:string) => 
-          tag.toLowerCase() === String(value).toLowerCase()
-        )
-      )
-    ))
+export default function Blog({ data }: Props) {
+  const [currentPage, setCurrentPage] = createSignal(1)
+  const totalPages = Math.ceil(data.length / POSTS_PER_PAGE)
+
+  const paginatedPosts = createMemo(() => {
+    const start = (currentPage() - 1) * POSTS_PER_PAGE
+    const end = start + POSTS_PER_PAGE
+    return data.slice(start, end)
   })
 
-  function toggleTag(tag: string) {
-    setFilter((prev) => 
-      new Set(prev.has(tag) 
-        ? [...prev].filter((t) => t !== tag) 
-        : [...prev, tag]
-      )
-    )
-  }
+  const pageNumbers = createMemo(() => {
+    const pages = []
+    for (let i = 1; i <= totalPages; i++) {
+      pages.push(i)
+    }
+    return pages
+  })
 
   return (
     <div class="flex flex-col gap-6">
-      <div class="flex flex-col gap-2">
-        <div class="text-sm uppercase">
-          SHOWING {posts().length} OF {data.length} POSTS
-        </div>
-        <div>
-          <div class="text-sm font-semibold uppercase mb-2 text-black dark:text-white">Filter</div>
-          <select onChange={(e) => toggleTag(e.currentTarget.value)} class="w-full px-2 py-1 rounded bg-black/5 dark:bg-white/10 hover:bg-black/10 hover:dark:bg-white/15 transition-colors duration-300 ease-in-out">
-            <option value="" disabled selected>Select a tag</option>
-            <For each={tags}>
-              {(tag) => (
-                <option value={tag} class={cn(filter().has(tag) && "text-black dark:text-white")}>
-                  {tag}
-                </option>
-              )}
-            </For>
-          </select>
-        </div>
+      <div class="text-sm uppercase mb-6">
+        SHOWING {paginatedPosts().length} OF {data.length} POSTS
       </div>
-      <div class="flex flex-col">
+      <div class="flex flex-col gap-6">
         <ul class="flex flex-col gap-3">
-          {posts().map((post) => (
-            <li>
-              <ArrowCard entry={post} />
-            </li>
-          ))}
+          <For each={paginatedPosts()}>
+            {(post) => (
+              <li>
+                <ArrowCard entry={post} />
+              </li>
+            )}
+          </For>
         </ul>
+        
+        <div class="flex items-center justify-center gap-2">
+          <button
+            onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
+            disabled={currentPage() === 1}
+            class={cn(
+              "px-4 py-2 rounded transition-colors duration-300 ease-in-out",
+              "bg-black/5 dark:bg-white/10 hover:bg-black/10 hover:dark:bg-white/15",
+              "disabled:opacity-50 disabled:cursor-not-allowed"
+            )}
+          >
+            Previous
+          </button>
+          
+          <For each={pageNumbers()}>
+            {(page) => (
+              <button
+                onClick={() => setCurrentPage(page)}
+                class={cn(
+                  "px-4 py-2 rounded transition-colors duration-300 ease-in-out",
+                  currentPage() === page
+                    ? "bg-black dark:bg-white text-white dark:text-black"
+                    : "bg-black/5 dark:bg-white/10 hover:bg-black/10 hover:dark:bg-white/15"
+                )}
+              >
+                {page}
+              </button>
+            )}
+          </For>
+          
+          <button
+            onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
+            disabled={currentPage() === totalPages}
+            class={cn(
+              "px-4 py-2 rounded transition-colors duration-300 ease-in-out",
+              "bg-black/5 dark:bg-white/10 hover:bg-black/10 hover:dark:bg-white/15",
+              "disabled:opacity-50 disabled:cursor-not-allowed"
+            )}
+          >
+            Next
+          </button>
+        </div>
       </div>
     </div>
   )
