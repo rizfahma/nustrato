@@ -123,6 +123,30 @@ article {
   @apply prose dark:prose-invert max-w-full pb-12;
 }
 
+article h1 {
+  @apply mb-6 mt-8;
+}
+
+article h2 {
+  @apply mb-4 mt-8;
+}
+
+article h3 {
+  @apply mb-3 mt-6;
+}
+
+article p {
+  @apply my-4;
+}
+
+article > *:first-child {
+  @apply mt-0;
+}
+
+article > *:last-child {
+  @apply mb-0;
+}
+
 .page-heading {
   @apply font-semibold text-black dark:text-white;
 }

@@ -20,11 +20,19 @@ export default function Blog({ data }: Props) {
   })
 
   const pageNumbers = createMemo(() => {
-    const pages = []
-    for (let i = 1; i <= totalPages; i++) {
-      pages.push(i)
+    const current = currentPage()
+    if (totalPages <= 3) {
+      const pages = []
+      for (let i = 1; i <= totalPages; i++) {
+        pages.push(i)
+      }
+      return pages
     }
-    return pages
+    
+    if (current <= 2) return [1, 2, 3]
+    if (current >= totalPages - 1) return [totalPages - 2, totalPages - 1, totalPages]
+    
+    return [current - 1, current, current + 1]
   })
 
   return (
@@ -43,12 +51,12 @@ export default function Blog({ data }: Props) {
           </For>
         </ul>
         
-        <div class="flex items-center justify-center gap-2">
+        <div class="flex items-center justify-center gap-2 flex-wrap">
           <button
             onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
             disabled={currentPage() === 1}
             class={cn(
-              "px-4 py-2 rounded transition-colors duration-300 ease-in-out",
+              "px-3 py-2 rounded transition-colors duration-300 ease-in-out text-sm",
               "bg-black/5 dark:bg-white/10 hover:bg-black/10 hover:dark:bg-white/15",
               "disabled:opacity-50 disabled:cursor-not-allowed"
             )}
@@ -61,7 +69,7 @@ export default function Blog({ data }: Props) {
               <button
                 onClick={() => setCurrentPage(page)}
                 class={cn(
-                  "px-4 py-2 rounded transition-colors duration-300 ease-in-out",
+                  "px-3 py-2 rounded transition-colors duration-300 ease-in-out text-sm",
                   currentPage() === page
                     ? "bg-black dark:bg-white text-white dark:text-black"
                     : "bg-black/5 dark:bg-white/10 hover:bg-black/10 hover:dark:bg-white/15"
@@ -76,7 +84,7 @@ export default function Blog({ data }: Props) {
             onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
             disabled={currentPage() === totalPages}
             class={cn(
-              "px-4 py-2 rounded transition-colors duration-300 ease-in-out",
+              "px-3 py-2 rounded transition-colors duration-300 ease-in-out text-sm",
               "bg-black/5 dark:bg-white/10 hover:bg-black/10 hover:dark:bg-white/15",
               "disabled:opacity-50 disabled:cursor-not-allowed"
             )}
