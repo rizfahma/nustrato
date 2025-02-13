@@ -79,76 +79,92 @@
 html {
   overflow-y: scroll;
   color-scheme: light;
-  background-color: white;
   font-family: "Geist", sans-serif;
-  
+  @apply h-full w-full antialiased;
+  @apply text-grey;
 }
 
 html.dark {
   color-scheme: dark;
-  background-color: black;
-}
-
-html,
-body {
-  @apply h-full w-full antialiased;
-  @apply bg-white dark:bg-black;
-  @apply text-black/75 dark:text-white/75;
+  @apply text-tanly;
 }
 
 body {
   @apply relative flex flex-col;
+  @apply h-full w-full;
+  @apply bg-gradient-to-br from-tanly to-olive;
+  @apply dark:from-grey dark:to-leaf;
+  @apply transition-colors duration-300;
 }
 
 main {
-  @apply flex flex-col flex-1 bg-white dark:bg-black;
+  @apply flex flex-col flex-1;
+  @apply px-4 sm:px-6 lg:px-8;
 }
 
 header {
-  @apply border-b;
+  @apply border-b border-olive/30 dark:border-leaf/30;
   @apply transition-all duration-300 ease-in-out;
+  @apply shadow-soft dark:shadow-none;
 }
 
 header:not(.scrolled) {
-  @apply bg-transparent border-transparent;
+  @apply bg-transparent border-transparent shadow-none;
 }
 
 header.scrolled {
-  @apply bg-white/75 dark:bg-black/50;
-  @apply border-black/10 dark:border-white/25;
-  @apply backdrop-blur-sm saturate-200;
+  @apply bg-tanly/80 dark:bg-grey/80;
+  @apply backdrop-blur-md;
 }
 
 article {
-  @apply prose dark:prose-invert max-w-full pb-12;
+  @apply prose dark:prose-invert max-w-3xl mx-auto pb-12;
+  @apply prose-headings:text-grey dark:prose-headings:text-tanly;
+  @apply prose-p:text-grey dark:prose-p:text-tanly;
+  @apply prose-a:text-leaf dark:prose-a:text-olive prose-a:no-underline hover:prose-a:underline;
+  @apply prose-img:rounded-xl prose-img:shadow-soft;
+  @apply prose-pre:shadow-soft dark:prose-pre:shadow-none;
 }
 
-article h1 {
-  @apply mb-6 mt-8;
+/* Card and interactive element styles */
+.card {
+  @apply bg-white/80 dark:bg-grey/50;
+  @apply border border-olive/30 dark:border-leaf/30;
+  @apply rounded-xl shadow-soft dark:shadow-none;
+  @apply transition-all duration-300;
+  @apply hover:shadow-soft-lg hover:scale-[1.02];
 }
 
-article h2 {
-  @apply mb-4 mt-8;
+.btn {
+  @apply px-4 py-2 rounded-lg;
+  @apply font-medium text-sm;
+  @apply transition-all duration-300;
+  @apply shadow-soft hover:shadow-soft-lg;
 }
 
-article h3 {
-  @apply mb-3 mt-6;
+.btn-primary {
+  @apply bg-leaf text-white;
+  @apply hover:bg-grey;
 }
 
-article p {
-  @apply my-4;
+.btn-secondary {
+  @apply bg-olive/20 text-grey;
+  @apply dark:bg-leaf/20 dark:text-tanly;
+  @apply hover:bg-olive/30 dark:hover:bg-leaf/30;
 }
 
-article > *:first-child {
-  @apply mt-0;
-}
-
-article > *:last-child {
-  @apply mb-0;
+/* Input styles */
+.input {
+  @apply px-4 py-2 rounded-lg;
+  @apply bg-white/80 dark:bg-grey/50;
+  @apply border border-olive/30 dark:border-leaf/30;
+  @apply shadow-soft dark:shadow-none;
+  @apply focus:ring-2 focus:ring-leaf/20 focus:border-leaf;
+  @apply transition-all duration-300;
 }
 
 .page-heading {
-  @apply font-semibold text-black dark:text-white;
+  @apply font-semibold text-grey dark:text-tanly;
 }
 
 .blend {
@@ -188,7 +204,7 @@ article img {
  * TWINKLE STARS
  */
 
- #twinkle-star.template {
+#twinkle-star.template {
   @apply absolute -left-full; /* hide offscreen */
 }
 
@@ -196,13 +212,12 @@ article img {
   @apply animate-twinkle; /* defined in tailwind.config */
 }
 
-
 /**
  * Meteors
  */
 
 #meteors .shower {
-  @apply absolute inset-0 top-0;;
+  @apply absolute inset-0 top-0;
   @apply left-1/2 -translate-x-1/2;
   @apply w-screen aspect-square;
 }
@@ -210,7 +225,7 @@ article img {
 #meteors .meteor {
   @apply animate-meteor; /* defined in tailwind.config */
   @apply absolute top-1/2 left-1/2 w-px h-[75vh];
-  @apply bg-gradient-to-b from-white to-transparent;
+  @apply bg-gradient-to-b from-olive to-transparent dark:from-leaf;
 }
 
 #meteors .shower.ur {

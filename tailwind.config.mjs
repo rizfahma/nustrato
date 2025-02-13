@@ -9,10 +9,73 @@ export default {
       fontFamily: {
         "sans": ["Geist", ...defaultTheme.fontFamily.sans],
       },
+      colors: {
+        olive: '#A3BCB6',
+        leaf: '#39603D',
+        grey: '#3C403D',
+        tanly: '#DADED4',
+        primary: {
+          50: '#DADED4',  // tanly
+          100: '#C1D1C8', // lighter olive
+          200: '#A3BCB6', // olive
+          300: '#8AA79F', // darker olive
+          400: '#718F88', // even darker olive
+          500: '#39603D', // leaf
+          600: '#3C403D', // grey
+          700: '#334334', // darker grey
+          800: '#2A362B', // even darker grey
+          900: '#212922', // darkest grey
+        },
+      },
+      boxShadow: {
+        'soft': '0 2px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.05)',
+        'soft-lg': '0 10px 25px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.05)',
+      },
       typography: {
         DEFAULT: {
           css: {
-            maxWidth: "full",
+            maxWidth: "65ch",
+            color: "rgb(55, 65, 81)",
+            lineHeight: "1.75",
+            p: {
+              marginTop: "1.5em",
+              marginBottom: "1.5em",
+            },
+            h1: {
+              fontWeight: "700",
+              marginTop: "2em",
+              marginBottom: "1em",
+              fontSize: "2.25em",
+              lineHeight: "1.2",
+            },
+            h2: {
+              fontWeight: "600",
+              marginTop: "2em",
+              marginBottom: "1em",
+              fontSize: "1.5em",
+              lineHeight: "1.3",
+            },
+            h3: {
+              fontWeight: "600",
+              marginTop: "1.5em",
+              marginBottom: "0.75em",
+              fontSize: "1.25em",
+              lineHeight: "1.4",
+            },
+            a: {
+              color: "rgb(99, 102, 241)",
+              textDecoration: "none",
+              fontWeight: "500",
+              "&:hover": {
+                textDecoration: "underline",
+              },
+            },
+            code: {
+              backgroundColor: "rgb(243, 244, 246)",
+              padding: "0.2em 0.4em",
+              borderRadius: "0.25em",
+              fontSize: "0.875em",
+            },
           },
         },
       },
