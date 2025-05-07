@@ -118,6 +118,15 @@ export default {
           },
         },
       },
+      colors: {
+        dark: {
+          DEFAULT: '#0f172a', // Slate 900
+          foreground: '#f8fafc', // Slate 50
+          muted: '#94a3b8', // Slate 400
+          accent: '#3b82f6', // Blue 500
+          border: '#334155', // Slate 700
+        }
+      }
     },
   },
   plugins: [require("@tailwindcss/typography")],

@@ -76,6 +76,22 @@
   }
 }
 
+:root {
+  --background: 255 255 255;
+  --foreground: 15 23 42;
+  --muted: 100 116 139;
+  --accent: 59 130 246;
+  --border: 226 232 240;
+}
+
+:root.dark {
+  --background: 15 23 42;
+  --foreground: 248 250 252;
+  --muted: 148 163 184;
+  --accent: 59 130 246;
+  --border: 51 65 85;
+}
+
 html {
   overflow-y: scroll;
   color-scheme: light;
@@ -91,6 +107,7 @@ html.dark {
 
 body {
   @apply relative flex flex-col;
+  @apply bg-[rgb(var(--background))] text-[rgb(var(--foreground))];
   @apply h-full w-full;
   @apply bg-gradient-to-br from-tanly to-olive;
   @apply dark:from-grey dark:to-leaf;

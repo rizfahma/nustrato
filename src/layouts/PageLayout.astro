@@ -15,12 +15,14 @@ import PostComments from "@components/PostComments.astro";
     <BaseHead title={`${title} | ${SITE.TITLE}`} description={description} />
     <script src="https://beamanalytics.b-cdn.net/beam.min.js" data-token="da09ea80-2371-4852-929e-e3526fd74a6b" async></script>
   </head>
-  <body>
+  <body class="min-h-screen bg-white dark:bg-dark text-slate-900 dark:text-slate-50">
     <Header />
     <Drawer />
-    <main>
-      <slot />
-    </main>
+    <div class="relative">
+      <main>
+        <slot />
+      </main>
+    </div>
     <Footer />
   </body>
 </html>
