@@ -265,6 +265,5 @@ article img {
   @apply border border-black/25 dark:border-white/25 hover:bg-black/5 hover:dark:bg-white/15;
 }
 .youtube-player iframe {
-  @apply w-full;
-  aspect-ratio: 16 / 9;
+  @apply w-full h-20 sm:h-24;
 }
