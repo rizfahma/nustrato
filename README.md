@@ -42,7 +42,9 @@ The blog posts on the demo serve as the documentation and configuration.
 
 Provide a URL returning `{ "videoId": "id" }` in an environment variable named
 `PUBLIC_NOW_PLAYING_URL`. The home page will fetch this endpoint to embed your
-currently playing YouTube Music track.
+currently playing YouTube Music track. The `YouTubeMusicPlayer` component can
+also accept a `videoId` prop to embed a fixed track without making any network
+requests.
 
 ## 💻 Commands
 
