@@ -12,13 +12,13 @@ const {
 
 const playerId = `ytplayer-${Math.random().toString(36).slice(2)}`
 ---
-<div class="youtube-player overflow-hidden rounded">
+<div class="youtube-player overflow-hidden rounded aspect-video">
   <iframe
     id={playerId}
     title="YouTube Music"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
     loading="lazy"
-    class="w-full h-20 sm:h-24"
+    class="w-full h-full"
   ></iframe>
 </div>
 
