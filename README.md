@@ -19,6 +19,7 @@ It is primarily Astro, Tailwind and Typescript, with a very small amount of Soli
 - ✅ Light/Dark Theme
 - ✅ Animated UI
 - ✅ Tailwind styling
+- ✅ UI components styled after [shadcn/ui](https://ui.shadcn.com)
 - ✅ Auto generated sitemap
 - ✅ Auto generated RSS Feed
 - ✅ Markdown support
@@ -37,6 +38,7 @@ Rendered in ~40ms on localhost
 ## 📄 Configuration
 
 The blog posts on the demo serve as the documentation and configuration.
+
 
 ## 💻 Commands
 

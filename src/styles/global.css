@@ -84,6 +84,8 @@
   --accent-from: 0 0 0; /* Monochrome */
   --accent-to: 0 0 0; /* Monochrome */
   --border: 226 232 240;
+  --ring: 0 0 0;
+  --radius: 0.5rem;
 }
 
 :root.dark {
@@ -94,6 +96,8 @@
   --accent-from: 255 255 255; /* Monochrome */
   --accent-to: 255 255 255; /* Monochrome */
   --border: 51 65 85;
+  --ring: 255 255 255;
+  --radius: 0.5rem;
 }
 
 html {
@@ -253,18 +257,26 @@ article img {
   color: rgb(var(--accent));
 }
 
+
+/* Shadcn UI button style */
 .btn {
-  @apply py-2 px-4 rounded transition-colors duration-300 ease-in-out text-sm md:text-base;
+  @apply inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 px-4 py-2;
 }
 
 .btn-primary {
-  @apply bg-black dark:bg-white text-white dark:text-black hover:opacity-75;
+  @apply bg-black text-white hover:bg-black/90 dark:bg-white dark:text-black dark:hover:bg-white/90;
 }
 
 .btn-outline {
-  @apply border border-black/25 dark:border-white/25 hover:bg-black/5 hover:dark:bg-white/15;
+  @apply border border-black/25 dark:border-white/25 hover:bg-black/5 dark:hover:bg-white/15;
 }
+
+.text-muted {
+  color: rgb(var(--muted));
+}
+
 .youtube-player iframe {
   @apply w-full;
   aspect-ratio: 16 / 9;
+}
 }
