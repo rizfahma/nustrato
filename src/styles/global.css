@@ -266,4 +266,5 @@ article img {
 }
 .youtube-player iframe {
   @apply w-full;
+  aspect-ratio: 16 / 9;
 }
