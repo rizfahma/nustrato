@@ -6,6 +6,7 @@ import StackCard from "@components/StackCard.astro"
 import { SITE, SOCIALS } from "@consts"
 import TwinklingStars from "@components/TwinklingStars.astro"
 import MeteorShower from "@components/MeteorShower.astro"
+import YouTubeMusicPlayer from "@components/YouTubeMusicPlayer.astro"
 
 const posts = (await getCollection("blog"))
   .filter(post => !post.data.draft)
@@ -75,7 +76,7 @@ const stack = [
           <p class='animated text-lg md:text-xl lg:text-2xl font-semibold opacity-75'>
             Hello
           </p>
-          <p class='animated text-3xl md:text-4xl lg:text-5xl font-bold uppercase gradient-text'>
+          <p class='animated text-3xl md:text-4xl lg:text-5xl font-bold uppercase text-black dark:text-white'>
             I am Rizqi Fahma
           </p>
           <p class='animated text-sm md:text-base lg:text-lg opacity-75'>
@@ -125,6 +126,16 @@ const stack = [
               </li>
             ))}
           </ul>
+        </div>
+      </section>
+
+      <!-- Now Listening Section -->
+      <section class="animate">
+        <div class="space-y-4">
+          <p class="font-semibold text-black dark:text-white">
+            Now Listening
+          </p>
+          <YouTubeMusicPlayer videoId="dQw4w9WgXcQ" />
         </div>
       </section>
 
