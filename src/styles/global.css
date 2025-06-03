@@ -263,15 +263,20 @@ article img {
   @apply inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 px-4 py-2;
 }
 
-
 .btn-primary {
   @apply bg-black text-white hover:bg-black/90 dark:bg-white dark:text-black dark:hover:bg-white/90;
 }
 
-
 .btn-outline {
   @apply border border-black/25 dark:border-white/25 hover:bg-black/5 dark:hover:bg-white/15;
 }
+
 .text-muted {
   color: rgb(var(--muted));
+}
+
+.youtube-player iframe {
+  @apply w-full;
+  aspect-ratio: 16 / 9;
+}
 }
