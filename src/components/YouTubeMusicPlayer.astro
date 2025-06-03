@@ -1,0 +1,40 @@
+---
+interface Props {
+  /**
+   * Endpoint that returns JSON `{ videoId: string }`
+   */
+  endpoint?: string
+}
+
+const {
+  endpoint = import.meta.env.PUBLIC_NOW_PLAYING_URL ?? "",
+} = Astro.props
+
+const playerId = `ytplayer-${Math.random().toString(36).slice(2)}`
+---
+<div class="youtube-player overflow-hidden rounded">
+  <iframe
+    id={playerId}
+    title="YouTube Music"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    loading="lazy"
+    class="w-full h-20 sm:h-24"
+  ></iframe>
+</div>
+
+<script is:inline define:vars={{ playerId, endpoint }}>
+  if (endpoint) {
+    fetch(endpoint)
+      .then((res) => res.json())
+      .then((data) => {
+        if (data?.videoId) {
+          document.getElementById(playerId).src =
+            `https://www.youtube-nocookie.com/embed/${data.videoId}?modestbranding=1&controls=1`;
+        }
+      })
+      .catch(() => {
+        console.error("Failed to load now playing data");
+      });
+  }
+</script>
+

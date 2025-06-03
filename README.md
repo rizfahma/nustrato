@@ -38,6 +38,12 @@ Rendered in ~40ms on localhost
 
 The blog posts on the demo serve as the documentation and configuration.
 
+### Now Playing setup
+
+Provide a URL returning `{ "videoId": "id" }` in an environment variable named
+`PUBLIC_NOW_PLAYING_URL`. The home page will fetch this endpoint to embed your
+currently playing YouTube Music track.
+
 ## 💻 Commands
 
 All commands are run from the root of the project, from a terminal:
