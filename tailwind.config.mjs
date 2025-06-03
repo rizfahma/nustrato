@@ -63,6 +63,9 @@ export default {
           accent: '#3b82f6', // Blue 500
           border: '#334155', // Slate 700
         }
+      },
+      ringColor: {
+        ring: 'rgb(var(--ring))'
       }
     },
   },
