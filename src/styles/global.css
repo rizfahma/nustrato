@@ -80,7 +80,9 @@
   --background: 255 255 255;
   --foreground: 15 23 42;
   --muted: 100 116 139;
-  --accent: 59 130 246;
+  --accent: 99 102 241; /* Indigo 500 */
+  --accent-from: 99 102 241; /* Indigo 500 */
+  --accent-to: 236 72 153; /* Pink 500 */
   --border: 226 232 240;
 }
 
@@ -88,7 +90,9 @@
   --background: 15 23 42;
   --foreground: 248 250 252;
   --muted: 148 163 184;
-  --accent: 59 130 246;
+  --accent: 147 51 234; /* Purple 600 */
+  --accent-from: 147 51 234; /* Purple 600 */
+  --accent-to: 236 72 153; /* Pink 500 */
   --border: 51 65 85;
 }
 
@@ -243,4 +247,23 @@ article img {
 
 #meteors .shower.ul {
   @apply rotate-315;
+}
+
+.gradient-text {
+  background-image: linear-gradient(to right, rgb(var(--accent-from)), rgb(var(--accent-to)));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.btn {
+  @apply py-2 px-4 rounded transition-colors duration-300 ease-in-out text-sm md:text-base;
+}
+
+.btn-primary {
+  @apply bg-black dark:bg-white text-white dark:text-black hover:opacity-75;
+}
+
+.btn-outline {
+  @apply border border-black/25 dark:border-white/25 hover:bg-black/5 hover:dark:bg-white/15;
 }
