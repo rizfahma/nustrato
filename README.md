@@ -19,6 +19,8 @@ It is primarily Astro, Tailwind and Typescript, with a very small amount of Soli
 - ✅ Light/Dark Theme
 - ✅ Animated UI
 - ✅ Tailwind styling
+- ✅ UI components styled after [shadcn/ui](https://ui.shadcn.com)
+- ✅ ChatGPT-inspired monochrome theme
 - ✅ Auto generated sitemap
 - ✅ Auto generated RSS Feed
 - ✅ Markdown support
@@ -37,6 +39,13 @@ Rendered in ~40ms on localhost
 ## 📄 Configuration
 
 The blog posts on the demo serve as the documentation and configuration.
+
+### Now Listening setup
+
+Set the `PUBLIC_NOW_PLAYING_URL` environment variable to an endpoint that
+returns `{ "videoId": "<YouTube ID>" }`. The home page will embed this track
+using the YouTube Music player.
+
 
 ## 💻 Commands
 

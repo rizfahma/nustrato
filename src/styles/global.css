@@ -10,7 +10,7 @@
     font-style: normal;
     font-display: swap;
   }
-  
+
   @font-face {
     font-family: "Geist";
     src: url("/fonts/Geist-ExtraLight.woff2") format("woff2");
@@ -18,7 +18,7 @@
     font-style: normal;
     font-display: swap;
   }
-  
+
   @font-face {
     font-family: "Geist";
     src: url("/fonts/Geist-Light.woff2") format("woff2");
@@ -26,7 +26,7 @@
     font-style: normal;
     font-display: swap;
   }
-  
+
   @font-face {
     font-family: "Geist";
     src: url("/fonts/Geist-Regular.woff2") format("woff2");
@@ -34,7 +34,7 @@
     font-style: normal;
     font-display: swap;
   }
-  
+
   @font-face {
     font-family: "Geist";
     src: url("/fonts/Geist-Medium.woff2") format("woff2");
@@ -42,7 +42,7 @@
     font-style: normal;
     font-display: swap;
   }
-  
+
   @font-face {
     font-family: "Geist";
     src: url("/fonts/Geist-SemiBold.woff2") format("woff2");
@@ -50,7 +50,7 @@
     font-style: normal;
     font-display: swap;
   }
-  
+
   @font-face {
     font-family: "Geist";
     src: url("/fonts/Geist-Bold.woff2") format("woff2");
@@ -58,7 +58,7 @@
     font-style: normal;
     font-display: swap;
   }
-  
+
   @font-face {
     font-family: "Geist";
     src: url("/fonts/Geist-ExtraBold.woff2") format("woff2");
@@ -66,7 +66,7 @@
     font-style: normal;
     font-display: swap;
   }
-  
+
   @font-face {
     font-family: "Geist";
     src: url("/fonts/Geist-Black.woff2") format("woff2");
@@ -77,47 +77,49 @@
 }
 
 :root {
-  --background: 255 255 255;
-  --foreground: 15 23 42;
-  --muted: 100 116 139;
-  --accent: 59 130 246;
-  --border: 226 232 240;
+  --background: 247 247 248; /* ChatGPT light bg */
+  --foreground: 0 0 0;
+  --muted: 86 88 105;
+  --accent: 16 163 127;
+  --accent-from: 16 163 127;
+  --accent-to: 16 163 127;
+  --border: 222 222 222;
+  --ring: 16 163 127;
+  --radius: 0.5rem;
 }
 
 :root.dark {
-  --background: 15 23 42;
-  --foreground: 248 250 252;
-  --muted: 148 163 184;
-  --accent: 59 130 246;
-  --border: 51 65 85;
+  --background: 52 53 65; /* ChatGPT dark bg */
+  --foreground: 255 255 255;
+  --muted: 136 136 136;
+  --accent: 16 163 127;
+  --accent-from: 16 163 127;
+  --accent-to: 16 163 127;
+  --border: 68 68 68;
+  --ring: 16 163 127;
+  --radius: 0.5rem;
 }
 
 html {
   overflow-y: scroll;
   color-scheme: light;
-  background-color: white;
+  background-color: rgb(var(--background));
   font-family: "Geist", sans-serif;
-  
 }
 
 html.dark {
   color-scheme: dark;
-  background-color: black;
+  background-color: rgb(var(--background));
 }
 
 html,
 body {
-  @apply h-full w-full antialiased;
-  @apply bg-white dark:bg-black;
+  @apply h-full w-full antialiased relative flex flex-col;
   @apply text-black/75 dark:text-white/75;
 }
 
-body {
-  @apply relative flex flex-col;
-}
-
 main {
-  @apply flex flex-col flex-1 bg-white dark:bg-black;
+  @apply flex flex-col flex-1;
 }
 
 header {
@@ -185,7 +187,9 @@ article > *:last-child {
 .animate {
   opacity: 0;
   transform: translateY(50px);
-  transition: opacity 1s ease, transform 1s ease;
+  transition:
+    opacity 1s ease,
+    transform 1s ease;
 }
 
 .animate.show {
@@ -204,7 +208,7 @@ article img {
  * TWINKLE STARS
  */
 
- #twinkle-star.template {
+#twinkle-star.template {
   @apply absolute -left-full; /* hide offscreen */
 }
 
@@ -212,13 +216,12 @@ article img {
   @apply animate-twinkle; /* defined in tailwind.config */
 }
 
-
 /**
  * Meteors
  */
 
 #meteors .shower {
-  @apply absolute inset-0 top-0;;
+  @apply absolute inset-0 top-0;
   @apply left-1/2 -translate-x-1/2;
   @apply w-screen aspect-square;
 }
@@ -243,4 +246,27 @@ article img {
 
 #meteors .shower.ul {
   @apply rotate-315;
+}
+
+.gradient-text {
+  color: rgb(var(--accent));
+}
+
+
+/* Shadcn UI button style */
+.btn {
+  @apply inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 px-4 py-2;
+}
+
+
+.btn-primary {
+  @apply bg-[rgb(var(--accent))] text-white hover:opacity-90;
+}
+
+
+.btn-outline {
+  @apply border border-[rgb(var(--accent))] text-[rgb(var(--accent))] hover:bg-[rgb(var(--accent))]/10;
+}
+.text-muted {
+  color: rgb(var(--muted));
 }
