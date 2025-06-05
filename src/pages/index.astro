@@ -226,9 +226,9 @@ const stack = [
           <p>
             Reach out to me via email or on social media.
           </p>
-          <div class="grid grid-cols-4 gap-y-2 mt-4 auto-cols-min">
+          <ul class="grid grid-cols-4 gap-y-2 mt-4 auto-cols-min">
             {SOCIALS.map(social => (
-              <>
+              <li class="contents">
                 <div class="col-span-1 flex items-center gap-1">
                   <span class="whitespace-nowrap truncate">
                     {social.NAME}
@@ -241,9 +241,9 @@ const stack = [
                     </span>
                   </a>
                 </div>
-              </>
+              </li>
             ))}
-        </div>
+          </ul>
       </section>
     </div>
   </div>
