@@ -106,4 +106,19 @@ import Container from "@components/Container.astro"
 
   document.addEventListener("astro:after-swap", initializeDrawerButton)
   initializeDrawerButton()
+
+  function initializeThemeSelect() {
+    const themeSelect = document.getElementById("theme-select");
+    if (themeSelect) {
+      themeSelect.value = localStorage.colorScheme || "github";
+      themeSelect.addEventListener("change", (e) => {
+        const scheme = e.target.value;
+        document.documentElement.setAttribute('data-theme', scheme);
+        localStorage.colorScheme = scheme;
+      });
+    }
+  }
+
+  document.addEventListener("astro:after-swap", initializeThemeSelect);
+  initializeThemeSelect();
 </script>

@@ -6,7 +6,6 @@ import StackCard from "@components/StackCard.astro"
 import { SITE, SOCIALS } from "@consts"
 import TwinklingStars from "@components/TwinklingStars.astro"
 import MeteorShower from "@components/MeteorShower.astro"
-import YouTubeMusicPlayer from "@components/YouTubeMusicPlayer.astro"
 
 const posts = (await getCollection("blog"))
   .filter(post => !post.data.draft)
@@ -48,7 +47,7 @@ const stack = [
 ---
 
 <PageLayout title="Home" description={SITE.DESCRIPTION}>
-
+  <!-- Background elements -->
   <!-- Light Mode: Particles -->
   <div class='absolute inset-0 block dark:hidden'>
     <div id='particles1' class='fixed inset-0'></div>
@@ -73,29 +72,22 @@ const stack = [
 
   <script is:inline src="/js/bg.js"></script>
   
- 
-<!-- HERO -->
-<section class="relative py-32 sm:py-44">
-  <div class="animate mx-auto max-w-screen-md text-center space-y-8 px-4">
-    <p class="animated text-lg sm:text-xl font-semibold opacity-75">
-      Hello
-    </p>
-    <p class="animated text-3xl sm:text-5xl font-bold uppercase text-black dark:text-white">
-      I am Rizqi Fahma
-    </p>
-    <p class="animated text-sm sm:text-lg opacity-75">
-      Welcome to my online presence in a form of website
-    </p>
-    <div id="ctaButtons" class="animated flex flex-wrap justify-center gap-4">
-      <a href="/blog" class="btn btn-primary truncate">
-        Read my blog
-      </a>
-      <a href="/work" class="btn btn-outline truncate">
-        View More
-      </a>
-    </div>
-  </div>
-</section>
+  <!-- Hero Section -->
+  <section class="relative min-h-screen flex items-center justify-center">
+    <div class="animate mx-auto max-w-screen-md text-center space-y-6 px-4">
+      <h1 class="animate text-4xl sm:text-6xl font-bold text-black dark:text-white">
+        Rizqi Fahma
+      </h1>
+      <p class="animate text-lg sm:text-xl text-black/75 dark:text-white/75">
+        Welcome to my online presence
+      </p>
+      <div class="animate flex flex-wrap justify-center gap-4 pt-4">
+        <a href="/blog" class="btn btn-primary">
+          Read my blog
+        </a>
+        <a href="/work" class="btn btn-outline">
+          View My Work
+        </a>
       </div>
     </div>
   </section>
@@ -135,46 +127,13 @@ const stack = [
       </section>
 
 
-<!-- HERO -->
-<section class="relative py-32 sm:py-44">
-  <div class="animate mx-auto max-w-screen-md text-center space-y-8 px-4">
-    <p class="animated text-lg sm:text-xl font-semibold opacity-75">
-      Hello
-    </p>
-    <p class="animated text-3xl sm:text-5xl font-bold uppercase text-black dark:text-white">
-      I am Rizqi Fahma
-    </p>
-    <p class="animated text-sm sm:text-lg opacity-75">
-      Welcome to my online presence in a form of website
-    </p>
-    <div id="ctaButtons" class="animated flex flex-wrap justify-center gap-4">
-      <a href="/blog" class="btn btn-primary truncate">
-        Read my blog
-      </a>
-      <a href="/work" class="btn btn-outline truncate">
-        View More
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- Now Listening Section -->
-<section class="relative py-24 sm:py-32">
-  <div class="animate mx-auto max-w-screen-md text-center space-y-4 px-4">
-    <p class="font-semibold text-black dark:text-white">
-      Now Listening
-    </p>
-    <YouTubeMusicPlayer videoId="dQw4w9WgXcQ" />
-  </div>
-</section>
-
       <!-- Tech Stack Section -->
       <section class="animate">
         <div class="space-y-4">
-          <p class="font-semibold text-black dark:text-white">
+          <p class="font-semibold text-black dark:text-white text-center">
             Website build with
           </p>
-          <div class="flex flex-wrap items-center gap-2 mt-5">
+          <div class="flex flex-wrap items-center justify-center gap-2 mt-5">
             {stack.map(item => (
               <StackCard 
                 text={item.text}
@@ -183,14 +142,6 @@ const stack = [
               />
             ))}
           </div>
-          <!-- <div>
-            Performing reactivity and statefulness, special guest
-            <a href="https://www.solidjs.com/" target="_blank" class="w-fit group underline decoration-[.5px] decoration-black/25 dark:decoration-white/50 hover:decoration-black dark:hover:decoration-white text-black dark:text-white underline-offset-2 blend">
-              <span class="text-black/75 dark:text-white/75 group-hover:text-black group-hover:dark:text-white blend">
-                SolidJS
-              </span>
-            </a>
-          </div> -->
         </div>
       </section>
 
@@ -219,30 +170,28 @@ const stack = [
 
       <!-- Contact Section -->
       <section class="animate">
-        <div>
+        <div class="text-center">
           <p class="font-semibold text-black dark:text-white">
             Let's Connect
           </p>
-          <p>
+          <p class="mb-4">
             Reach out to me via email or on social media.
           </p>
-          <div class="grid grid-cols-4 gap-y-2 mt-4 auto-cols-min">
+          <div class="flex flex-col items-center gap-4">
             {SOCIALS.map(social => (
-              <>
-                <div class="col-span-1 flex items-center gap-1">
-                  <span class="whitespace-nowrap truncate">
-                    {social.NAME}
+              <div class="text-center">
+                <div class="font-medium mb-1">
+                  {social.NAME}
+                </div>
+                <a href={social.HREF} target="_blank" 
+                   class="group underline decoration-[.5px] decoration-black/25 dark:decoration-white/50 hover:decoration-black dark:hover:decoration-white text-black dark:text-white underline-offset-2 blend">
+                  <span class="text-black/75 dark:text-white/75 group-hover:text-black group-hover:dark:text-white blend">
+                    {social.TEXT}
                   </span>
-                </div>
-                <div class="col-span-3 truncate">
-                  <a href={social.HREF} target="_blank" class="w-fit col-span-3 group flex gap-1 items-center underline decoration-[.5px] decoration-black/25 dark:decoration-white/50 hover:decoration-black dark:hover:decoration-white text-black dark:text-white underline-offset-2 blend">
-                    <span class="text-black/75 dark:text-white/75 group-hover:text-black group-hover:dark:text-white blend">
-                      {social.TEXT}
-                    </span>
-                  </a>
-                </div>
-              </>
+                </a>
+              </div>
             ))}
+          </div>
         </div>
       </section>
     </div>

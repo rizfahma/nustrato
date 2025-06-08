@@ -77,46 +77,32 @@
 }
 
 :root {
-  --background: 255 255 255;
-  --foreground: 15 23 42;
-  --muted: 100 116 139;
-  --accent: 0 0 0; /* Monochrome */
-  --accent-from: 0 0 0; /* Monochrome */
-  --accent-to: 0 0 0; /* Monochrome */
-  --border: 226 232 240;
-  --ring: 0 0 0;
-  --radius: 0.5rem;
-}
-
-:root.dark {
-  --background: 15 23 42;
-  --foreground: 248 250 252;
-  --muted: 148 163 184;
-  --accent: 255 255 255; /* Monochrome */
-  --accent-from: 255 255 255; /* Monochrome */
-  --accent-to: 255 255 255; /* Monochrome */
-  --border: 51 65 85;
-  --ring: 255 255 255;
+  --background: 13 17 23;
+  --foreground: 230 237 243;
+  --muted: 139 148 158;
+  --accent: 47 129 247;
+  --border: 33 38 45;
+  --ring: 47 129 247;
   --radius: 0.5rem;
 }
 
 html {
   overflow-y: scroll;
-  color-scheme: light;
-  background-color: white;
+  color-scheme: dark;
+  background-color: black;
   font-family: "Geist", sans-serif;
 }
 
-html.dark {
-  color-scheme: dark;
-  background-color: black;
+html.light {
+  color-scheme: light;
+  background-color: white;
 }
 
 html,
 body {
   @apply h-full w-full antialiased;
-  @apply bg-white dark:bg-black;
-  @apply text-black/75 dark:text-white/75;
+  @apply bg-black dark:bg-black;
+  @apply text-white/75 dark:text-white/75;
 }
 
 body {
@@ -278,5 +264,4 @@ article img {
 .youtube-player iframe {
   @apply w-full;
   aspect-ratio: 16 / 9;
-}
 }
