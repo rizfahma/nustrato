@@ -57,11 +57,12 @@ export default {
       },
       colors: {
         dark: {
-          DEFAULT: '#0f172a', // Slate 900
-          foreground: '#f8fafc', // Slate 50
-          muted: '#94a3b8', // Slate 400
-          accent: '#3b82f6', // Blue 500
-          border: '#334155', // Slate 700
+          DEFAULT: '#1e1e2e', // Main background
+          foreground: '#ff75b5', // Neon pink for main text
+          muted: '#6c7086', // Grayish for subtle text
+          accent: '#00ffcc', // Bright neon cyan for highlights
+          border: '#45475a', // Selection/border color
+          highlight: '#89b4fa', // Light blue for structural elements
         }
       },
       ringColor: {

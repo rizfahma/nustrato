@@ -77,16 +77,28 @@
 }
 
 :root {
-  --background: 13 17 23;
-  --foreground: 230 237 243;
-  --muted: 139 148 158;
-  --accent: 47 129 247;
-  --border: 33 38 45;
-  --ring: 47 129 247;
-  --radius: 0.5rem;
+  --background: 255 255 255;
+  --foreground: 15 23 42;
+  --muted: 108 112 134;
+  --accent: 0 255 204;
+  --border: 226 232 240;
+  --ring: 137 180 250;
+  --radius: 0.75rem;
 }
 
+:root.dark {
+  --background: 30 30 46; /* cyber-bg: #1e1e2e */
+  --foreground: 255 117 181; /* cyber-pink: #ff75b5 */
+  --muted: 108 112 134; /* cyber-muted: #6c7086 */
+  --accent: 0 255 204; /* cyber-highlight: #00ffcc */
+  --border: 69 71 90; /* cyber-selection: #45475a */
+  --ring: 137 180 250; /* cyber-blue: #89b4fa */
+  --radius: 0.75rem;
+}
+
+/* Add smooth scrolling */
 html {
+  scroll-behavior: smooth;
   overflow-y: scroll;
   color-scheme: dark;
   background-color: black;
@@ -101,8 +113,7 @@ html.light {
 html,
 body {
   @apply h-full w-full antialiased;
-  @apply bg-black dark:bg-black;
-  @apply text-white/75 dark:text-white/75;
+  @apply bg-white dark:bg-dark text-black/75 dark:text-dark-foreground;
 }
 
 body {
@@ -110,11 +121,11 @@ body {
 }
 
 main {
-  @apply flex flex-col flex-1 bg-white dark:bg-black;
+  @apply flex flex-col flex-1 bg-white dark:bg-dark;
 }
 
 header {
-  @apply border-b;
+  @apply border-b border-black/10 dark:border-dark-border;
   @apply transition-all duration-300 ease-in-out;
 }
 
@@ -123,8 +134,8 @@ header:not(.scrolled) {
 }
 
 header.scrolled {
-  @apply bg-white/75 dark:bg-black/50;
-  @apply border-black/10 dark:border-white/25;
+  @apply bg-white/75 dark:bg-dark/50;
+  @apply border-black/10 dark:border-dark-border;
   @apply backdrop-blur-sm saturate-200;
 }
 
@@ -240,7 +251,7 @@ article img {
 }
 
 .gradient-text {
-  color: rgb(var(--accent));
+  color: #00ffcc; /* cyber-highlight */
 }
 
 
@@ -264,4 +275,24 @@ article img {
 .youtube-player iframe {
   @apply w-full;
   aspect-ratio: 16 / 9;
+}
+
+/* Enhanced card hover effects */
+.card-hover {
+  @apply transition-all duration-300;
+  @apply hover:shadow-lg dark:hover:shadow-white/5;
+  @apply hover:scale-[1.02];
+}
+
+/* Gradient animation */
+.gradient-animate {
+  background: linear-gradient(45deg, #00ffcc, #ff75b5); /* cyber-highlight to cyber-pink */
+  background-size: 200% 200%;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
