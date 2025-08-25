@@ -77,22 +77,22 @@
 }
 
 :root {
-  --background: 255 255 255;
-  --foreground: 15 23 42;
-  --muted: 108 112 134;
-  --accent: 0 255 204;
-  --border: 226 232 240;
-  --ring: 137 180 250;
+  --background: 250 248 255; /* Light purple background */
+  --foreground: 45 35 75; /* Dark purple text */
+  --muted: 120 113 140; /* Muted purple */
+  --accent: 130 87 229; /* Shades of Purple accent */
+  --border: 221 214 254; /* Light purple border */
+  --ring: 130 87 229; /* Purple ring */
   --radius: 0.75rem;
 }
 
 :root.dark {
-  --background: 30 30 46; /* cyber-bg: #1e1e2e */
-  --foreground: 255 117 181; /* cyber-pink: #ff75b5 */
-  --muted: 108 112 134; /* cyber-muted: #6c7086 */
-  --accent: 0 255 204; /* cyber-highlight: #00ffcc */
-  --border: 69 71 90; /* cyber-selection: #45475a */
-  --ring: 137 180 250; /* cyber-blue: #89b4fa */
+  --background: 45 35 75; /* Shades of Purple dark background #2D234B */
+  --foreground: 250 248 255; /* Light purple text */
+  --muted: 165 180 252; /* Light purple muted */
+  --accent: 196 181 253; /* Light purple accent */
+  --border: 88 80 141; /* Purple border */
+  --ring: 196 181 253; /* Light purple ring */
   --radius: 0.75rem;
 }
 
@@ -251,7 +251,7 @@ article img {
 }
 
 .gradient-text {
-  color: #00ffcc; /* cyber-highlight */
+  color: #8257e5; /* Shades of Purple accent */
 }
 
 
@@ -261,11 +261,11 @@ article img {
 }
 
 .btn-primary {
-  @apply bg-black text-white hover:bg-black/90 dark:bg-white dark:text-black dark:hover:bg-white/90;
+  @apply bg-purple-500 text-white hover:bg-purple-800 dark:bg-purple-600 dark:text-white dark:hover:bg-purple-700 shadow-lg hover:shadow-xl;
 }
 
 .btn-outline {
-  @apply border border-black/25 dark:border-white/25 hover:bg-black/5 dark:hover:bg-white/15;
+  @apply border-2 border-purple-400 dark:border-purple-300 text-purple-700 dark:text-purple-300 hover:bg-purple-100 dark:hover:bg-purple-800/30 shadow-sm hover:shadow-md;
 }
 
 .text-muted {
@@ -277,16 +277,9 @@ article img {
   aspect-ratio: 16 / 9;
 }
 
-/* Enhanced card hover effects */
-.card-hover {
-  @apply transition-all duration-300;
-  @apply hover:shadow-lg dark:hover:shadow-white/5;
-  @apply hover:scale-[1.02];
-}
-
 /* Gradient animation */
 .gradient-animate {
-  background: linear-gradient(45deg, #00ffcc, #ff75b5); /* cyber-highlight to cyber-pink */
+  background: linear-gradient(45deg, #8257e5, #c4b5fd, #a78bfa); /* Shades of Purple gradient */
   background-size: 200% 200%;
   animation: gradient 15s ease infinite;
 }
