@@ -14,8 +14,16 @@ currently being supported with security updates.
 
 ## Reporting a Vulnerability
 
-Use this section to tell people how to report a vulnerability.
+If you discover a security vulnerability, **please do not create a public issue**.  
+Instead, report it privately by emailing [security@nustrato.com](mailto:security@nustrato.com) or via GitHub's private vulnerability reporting feature.
 
-Tell them where to go, how often they can expect to get an update on a
-reported vulnerability, what to expect if the vulnerability is accepted or
-declined, etc.
+- We will acknowledge your report within 3 business days.
+- After triage, we will provide updates on remediation progress.
+- Once resolved, we will credit you (if desired) and publish a security advisory.
+
+**Please include:**
+- A description of the vulnerability and its impact.
+- Steps to reproduce or proof-of-concept code.
+- Any relevant logs or screenshots.
+
+Thank you for helping keep this project and its users safe!
